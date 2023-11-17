@@ -1,11 +1,19 @@
-import 
-function App() {
-  return (
-    <div >
+import { Todolist } from "./Todolist"; 
+// import { Name } from "./Name"; 
+// import { NameClass } from "./NameClass"; 
+function App() { 
+  return ( 
+    <div> 
+      {/* <NameClass/> 
+      <Name age={30}/> 
+      HI  */}
 
-      HI
-    </div>
-  );
-}
-
-export default App;
+      <Todolist>
+        <h3>Name</h3>
+        
+      </Todolist>
+    </div> 
+  ); 
+} 
+ 
+export default App; 
