@@ -1,19 +1,22 @@
-import { Todolist } from "./Todolist"; 
-// import { Name } from "./Name"; 
-// import { NameClass } from "./NameClass"; 
-function App() { 
-  return ( 
-    <div> 
-      {/* <NameClass/> 
-      <Name age={30}/> 
-      HI  */}
+// import { Todolist } from "./Todolist";
+// import { TodolistClass } from "./TodolistClass";
+// import { Name } from "./Name";
+// import { NameClass } from "./NameClass";
+// import { Counter } from "./Counter";
 
-      <Todolist>
-        <h3>Name</h3>
-        
-      </Todolist>
-    </div> 
-  ); 
-} 
- 
-export default App; 
+import { Counter } from "./Counter";
+import { CounterClass } from "./CounterClass";
+
+
+function App() {
+
+
+  return (
+    <>
+      <Counter />
+      <CounterClass/>
+    </>
+  );
+}
+
+export default App;

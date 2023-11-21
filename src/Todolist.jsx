@@ -1,5 +1,6 @@
-export function Todolist({ name }){
-    return <div>
-    {name}
-    </div>
+export function Todolist({ children , isComplete }){
+    return <label>
+        <input type="checkbox" defaultChecked={isComplete} />
+        {children}
+    </label>
 }
