@@ -1,22 +1,17 @@
-// import { Todolist } from "./Todolist";
-// import { TodolistClass } from "./TodolistClass";
-// import { Name } from "./Name";
-// import { NameClass } from "./NameClass";
-// import { Counter } from "./Counter";
+import { useState } from "react"
+import { Child } from "./Child"
 
-import { Counter } from "./Counter";
-import { CounterClass } from "./CounterClass";
+export default function App() {
+  const [show, setShow] = useState(true)
 
-
-function App() {
-
+  const childComponent = show ? <Child /> : null
 
   return (
-    <>
-      <Counter />
-      <CounterClass/>
-    </>
-  );
+    <div>
+      <button onClick={() => setShow(currentShow => !currentShow)}>
+        Show/Hide
+      </button>
+      {childComponent}
+    </div>
+  )
 }
-
-export default App;
