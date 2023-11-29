@@ -1,70 +1,47 @@
-import { useEffect, useState } from "react";
+// import { useCallback, useEffect, useRef, useState } from "react";
+import { useRandomValue } from "./useRandomValue";
+import { useInputValue } from "./useInputValue";
 
 export function Child() {
-  const [age, setAge] = useState(0);
-  const [name, setName] = useState("");
-  const [items, setitems] = useState([
-    { items: 1, name: "sagar" },
-    { items: 2, name: "mahendra" },
-    { items: 3, name: "pratik" },
-  ]);
+  // const [age, setAge] = useState(0);
 
-  function additems() {
-    setitems((items) => {
-      return [...items, { items: 4, name: "sagar" }];
-    });
-  }
+  const { setrandomvalue, printvalue } = useRandomValue();
+  const { nameInput } = useInputValue("John");
 
-  console.log("Body Rendered");
-  useEffect(() => {
-    console.log("Re-Rendered");
-  });
+  // const printname = useCallback(() => {
+  //   console.log("name", name);
+  // }, [name]);
+  // useEffect(() => {
+  //   console.log("Inside useEffect");
+  //   printname();
+  // });
 
-  useEffect(() => {
-    console.log("Mounted");
-    return () => {
-      console.log("Unmounted");
-    };
-  }, [name]);
-
-  useEffect(() => {
-    console.log(" Name & Age Updated");
-  }, [name, age]);
-
-  useEffect(() => {
-    document.title = name;
-
-    const timeout = setTimeout(() => {
-      console.log("Name Updated");
-    }, 1000);
-
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [name]);
+  // useEffect(() => {
+  //   console.log(
+  //     " New -> Printname function is create: bcuz everything it create new reference"
+  //   );
+  // }, [printname]);
 
   return (
     <div>
-       <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
+      <button onClick={setrandomvalue}>Random value</button>
+      <button onClick={printvalue}>Print value</button>
+
       <br />
+      <label>
+        Name:
+        <input {...nameInput}></input>
+      </label>
+
       <br />
-      <button onClick={() => setAge((a) => a - 1)}>-</button>
-      {age}
-      <button onClick={() => setAge((a) => a + 1)}>+</button>
-      <br />
-      <br />
-      My name is {name} and I am {age} years old. 
-    <br/>
-      <button onClick={additems}>Add Items</button>
-      <pre>
-        {items.map((items) => (
-          <div> {items.name} </div>
-        ))}
-      </pre>
+      {/* <label>
+        Age:
+        <input
+          type="text"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}></input>
+      </label> 
+      <br />*/}
     </div>
   );
 }
